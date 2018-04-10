@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PopularMovies</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="pref_movie_display_options_label">Display Options</string>
+    <string name="pref_movie_display_options_label_popular">Popular Movies</string>
+    <string name="pref_movie_display_options_label_top_rated">Top Rated Movies</string>
+    <string name="pref_movie_display_options_key" translatable="false">displayOptions</string>
+    <string name="pref_movie_display_options_value_popular" translatable="false">popular</string>
+    <string name="pref_movie_display_options_value_top_rated" translatable="false">topRated</string>
+
+    <string name="release_date">Release Date: </string>
+    <string name="user_rating">User Rating: </string>
+</resources>

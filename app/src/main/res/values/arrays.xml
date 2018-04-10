@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="pref_movie_display_options_values">
+        <item>@string/pref_movie_display_options_value_popular</item>
+        <item>@string/pref_movie_display_options_value_top_rated</item>
+    </array>
+
+    <array name="pref_movie_display_options_labels">
+        <item>@string/pref_movie_display_options_label_popular</item>
+        <item>@string/pref_movie_display_options_label_top_rated</item>
+    </array>
+</resources>
