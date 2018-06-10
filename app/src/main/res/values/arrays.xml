@@ -4,10 +4,12 @@
     <array name="pref_movie_display_options_values">
         <item>@string/pref_movie_display_options_value_popular</item>
         <item>@string/pref_movie_display_options_value_top_rated</item>
+        <item>@string/pref_movie_display_options_value_favourite</item>
     </array>
 
     <array name="pref_movie_display_options_labels">
         <item>@string/pref_movie_display_options_label_popular</item>
         <item>@string/pref_movie_display_options_label_top_rated</item>
+        <item>@string/pref_movie_display_options_label_favourite</item>
     </array>
 </resources>

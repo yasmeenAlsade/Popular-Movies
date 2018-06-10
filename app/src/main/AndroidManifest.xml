@@ -22,7 +22,14 @@
         <activity
             android:name=".Activities.SettingsActivity"
             android:parentActivityName=".Activities.MainActivity" />
-        <activity android:name=".Activities.MovieDetailsActivity"></activity>
+        <activity
+            android:name=".Activities.MovieDetailsActivity"
+            android:parentActivityName=".Activities.MainActivity"></activity>
+        <provider
+            android:name="com.example.android.popularmovies.Data.FavouriteContentProvider"
+            android:authorities="com.example.android.popularmovies"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

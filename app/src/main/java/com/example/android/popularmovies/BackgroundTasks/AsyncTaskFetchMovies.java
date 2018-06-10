@@ -42,9 +42,12 @@ public class AsyncTaskFetchMovies extends AsyncTask<String, Void, String> {
 
         StringBuilder result = new StringBuilder();
         String line = "";
-
-
-        URL url = buildURL(strings[0], strings[1]);
+        URL url = null;
+        try {
+            url = new URL(strings[0]);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
 
         if (url != null) {
@@ -75,33 +78,6 @@ public class AsyncTaskFetchMovies extends AsyncTask<String, Void, String> {
         super.onPostExecute(s);
 
         asyncTaskCompleteListener.onTaskComplete(s);
-    }
-
-
-    private URL buildURL(String pageNumber, String displayOption) {
-        Uri.Builder builder = new Uri.Builder();
-        URL url = null;
-
-
-        builder.scheme("https")
-                .authority("api.themoviedb.org")
-                .appendPath("3")
-                .appendPath("movie")
-                .appendPath(displayOption)
-                .appendQueryParameter("api_key", BuildConfig.API_KEY)
-                .appendQueryParameter("language", "en-US")
-                .appendQueryParameter("page", pageNumber);
-
-
-        String strUrl = builder.build().toString();
-        try {
-            url = new URL(strUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-
-        return url;
     }
 
     public interface AsyncTaskCompleteListener<T> {
