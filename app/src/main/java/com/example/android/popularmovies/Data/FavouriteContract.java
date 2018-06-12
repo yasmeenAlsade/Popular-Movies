@@ -7,7 +7,9 @@ import android.provider.BaseColumns;
  * Created by yalsaadi on 5/29/2018.
  */
 
-public class FavouriteContract {
+final public class FavouriteContract {
+
+    private FavouriteContract() {}
 
     public static final String AUTHORITY = "com.example.android.popularmovies";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
