@@ -1,4 +1,4 @@
-package com.example.android.popularmovies.Activities;
+package com.example.android.popularmovies.activities;
 
 
 import android.content.Context;
@@ -28,10 +28,10 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 
-import com.example.android.popularmovies.Adapters.MoviesRecyclerViewAdapter;
-import com.example.android.popularmovies.BackgroundTasks.AsyncTaskFetchMovies;
+import com.example.android.popularmovies.adapters.MoviesRecyclerViewAdapter;
+import com.example.android.popularmovies.backgroundtasks.AsyncTaskFetchMovies;
 import com.example.android.popularmovies.BuildConfig;
-import com.example.android.popularmovies.Data.FavouriteContract;
+import com.example.android.popularmovies.data.FavouriteContract;
 import com.example.android.popularmovies.R;
 
 

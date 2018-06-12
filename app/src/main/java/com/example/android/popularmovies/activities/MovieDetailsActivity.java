@@ -1,4 +1,4 @@
-package com.example.android.popularmovies.Activities;
+package com.example.android.popularmovies.activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.popularmovies.Adapters.MoviesVideosRecyclerViewAdapter;
-import com.example.android.popularmovies.BackgroundTasks.AsyncTaskFetchMovies;
+import com.example.android.popularmovies.adapters.MoviesVideosRecyclerViewAdapter;
+import com.example.android.popularmovies.backgroundtasks.AsyncTaskFetchMovies;
 import com.example.android.popularmovies.BuildConfig;
-import com.example.android.popularmovies.Data.FavouriteContract;
+import com.example.android.popularmovies.data.FavouriteContract;
 import com.example.android.popularmovies.R;
 import com.squareup.picasso.Picasso;
 

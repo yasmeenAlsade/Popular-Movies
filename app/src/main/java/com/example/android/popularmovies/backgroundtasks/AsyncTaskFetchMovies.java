@@ -1,14 +1,7 @@
-package com.example.android.popularmovies.BackgroundTasks;
+package com.example.android.popularmovies.backgroundtasks;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
-
-import com.example.android.popularmovies.BuildConfig;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;

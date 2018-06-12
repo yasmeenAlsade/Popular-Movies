@@ -1,4 +1,4 @@
-package com.example.android.popularmovies.Adapters;
+package com.example.android.popularmovies.adapters;
 
 import android.app.Activity;
 import android.content.Context;

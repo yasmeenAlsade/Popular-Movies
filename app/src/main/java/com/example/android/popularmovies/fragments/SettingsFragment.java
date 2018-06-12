@@ -1,4 +1,4 @@
-package com.example.android.popularmovies.Fragments;
+package com.example.android.popularmovies.fragments;
 
 
 import android.content.SharedPreferences;
