@@ -27,6 +27,7 @@ public class FavoriteMovieDBHelper extends SQLiteOpenHelper {
                 + FavouriteMovieDetails + " text)");
     }
 
+    // the database is only on version 1, so no upgrade is required.
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
