@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.GridLayoutManager;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MoviesRecyclerVie
     private MoviesRecyclerViewAdapter moviesRecyclerViewAdapter;
     private boolean isScrolling = false;
     private int currentPage = 1;
-
+    private Parcelable recyclerViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +60,31 @@ public class MainActivity extends AppCompatActivity implements MoviesRecyclerVie
         recyclerViewMovies.setLayoutManager(gridLayoutManager);
 
 
-        jsonArrayMoviesInfo = new JSONArray();
-        moviesRecyclerViewAdapter = new MoviesRecyclerViewAdapter(MainActivity.this, jsonArrayMoviesInfo, this);
-        recyclerViewMovies.setAdapter(moviesRecyclerViewAdapter);
+        if (savedInstanceState != null) {
+            recyclerViewState = savedInstanceState.getParcelable("stateKey");
+            currentPage = savedInstanceState.getInt("currentPage");
+            try {
+                JSONArray jsonArray = new JSONArray(savedInstanceState.getString("info"));
+                jsonArrayMoviesInfo = jsonArray;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
+            moviesRecyclerViewAdapter = new MoviesRecyclerViewAdapter(MainActivity.this, jsonArrayMoviesInfo, this);
+            recyclerViewMovies.setAdapter(moviesRecyclerViewAdapter);
+            recyclerViewMovies.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+            recyclerViewState = null;
+        } else {
+            jsonArrayMoviesInfo = new JSONArray();
+            moviesRecyclerViewAdapter = new MoviesRecyclerViewAdapter(MainActivity.this, jsonArrayMoviesInfo, this);
+            recyclerViewMovies.setAdapter(moviesRecyclerViewAdapter);
+
+            if (isInternetConnectionExist(getApplicationContext()) == true) {
+                setUpSharedPreferencesSettings(currentPage);
+            } else {
+                Toast.makeText(getApplicationContext(), "Check your internet connection!", Toast.LENGTH_LONG).show();
+            }
+        }
 
         recyclerViewMovies.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -95,17 +117,14 @@ public class MainActivity extends AppCompatActivity implements MoviesRecyclerVie
         });
     }
 
-
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (isInternetConnectionExist(getApplicationContext()) == true) {
-            setUpSharedPreferencesSettings(currentPage);
-        } else {
-            Toast.makeText(getApplicationContext(), "Check your internet connection!", Toast.LENGTH_LONG).show();
-        }
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("stateKey", recyclerViewMovies.getLayoutManager().onSaveInstanceState());
+        outState.putInt("currentPage", currentPage);
+        String p = jsonArrayMoviesInfo.toString();
+        outState.putString("info", p);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
